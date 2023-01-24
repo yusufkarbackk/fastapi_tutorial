@@ -3,7 +3,7 @@ from core.config import settings
 from apis.general_pages.route_homepage import general_pages_router
 from fastapi.staticfiles import StaticFiles
 from db.session import engine
-from db.base_class import Base
+from db.base import Base
 
 
 def include_router(app):
@@ -15,6 +15,7 @@ def configure_static(app):
 
 
 def create_tables():
+    print('create_tables')
     Base.metadata.create_all(bind=engine)
 
 
